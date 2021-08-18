@@ -79,10 +79,6 @@ function createPost(post) {
 
 }
 
-createPost({ title: 'Post Three', body: 'This is post three'})
-    .then(getPosts)
-    .catch(err => console.log(err));
-
 function deletePost() {
     return new Promise((resolve, reject) => {
         if(posts.length > 0){
@@ -111,3 +107,15 @@ const timerId = setInterval(() => {
 }, 2000)
 
 
+// createPost({ title: 'Post Three', body: 'This is post three'})
+//     .then(getPosts)
+//     .catch(err => console.log(err));
+
+// Asyns / Await
+async function init() {
+    await createPost({ title: 'Post Three', body: 'This is post three'})
+        
+    getPosts();
+}
+
+init();
